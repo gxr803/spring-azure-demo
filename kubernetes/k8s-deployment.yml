@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+    name: springboot-k8s-azure
+spec:
+   selector:
+       matchLabels:
+          app: springboot-k8s-azure
+   replicas: 3
+   template:
+    metadata:
+      labels:
+        app: springboot-k8s-azure
+    spec:
+       containers:
+          - name: springboot-k8s-azure
+            image: springboot-k8s-azure:v1
+            imagePullPolicy: IfNotPresent
+            ports:
+              - containerPort: 8080
+        
